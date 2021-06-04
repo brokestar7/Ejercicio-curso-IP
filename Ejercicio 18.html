@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- añado un comentario para probar el commit -->
     <style>
         h1 {
             font-size: 50px;    
@@ -27,11 +26,15 @@
     <p id="intentos"></p>
     <div id="botonesLetras"></div>
     <div id="contadorImagenes"></div>
-    <!-- <p id="palabraOculta"></p> -->
     <button type="button" onclick="iniciarJuego()">Iniciar Juego</button>
-    <!-- <img src="Images/ahorcado1.jpg" alt=""> -->
-    
+    <label>Elije un idioma:</label>
+    <select id="escogerIdiomas" onchange="cambiarIdioma()">
+        <option value="catalan">Catalan</option>
+        <option value="ingles">Ingles</option>
+        <option value="castellano">Castellano</option>
+    </select>
     <script>
+        let idiomaSeleccionado = document.getElementById("escogerIdiomas").value;
         let contadorAciertos;
         let contadorFallos;
         let contadorFallosMostrados = 7;
@@ -77,8 +80,7 @@
                 letraExiste=true;
                 document.getElementById("guion"+i).innerHTML= letraEscogida;           
                 }
-               
-            }  
+               }  
             if(contadorAciertos==numLetras){
                 alert("¡Felicidades has Ganado!");
             for(i=0;i < arrLetras.length ;i++) {
@@ -88,6 +90,7 @@
             if(letraExiste==false) {
                     contarFallos();
                 }
+            }
         function contarFallos(){    
             contadorFallos = contadorFallos+1;
             contadorFallosMostrados = contadorFallosMostrados - 1;
@@ -101,7 +104,15 @@
             }
             }
             }
-            }        
+            function cambiarIdioma() {
+                switch(idiomaSeleccionado) {
+                    case "catalan":
+                    let arrPalabras=["taula","cadira","paraula","finestra"];
+                    let arrLetras = ['a','b','c','ç','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+                    break;
+                }
+            }
+                 
     </script>
 </body>
 </html>
