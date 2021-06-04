@@ -44,6 +44,7 @@
         let numLetras;
         let mensajeGanador="Has Ganado!";
         let mensajePerdedor="Has Perdido...";
+        let mostrarError= "Lo siento, te has equivocado";
         function iniciarJuego() {
             document.getElementById("botonesLetras").innerHTML = "";
             document.getElementById("contadorImagenes").innerHTML= "";
@@ -84,7 +85,7 @@
                 }
                }  
             if(contadorAciertos==numLetras){
-                alert("¡Felicidades has Ganado!");
+                alert(mensajeGanador);
             for(i=0;i < arrLetras.length ;i++) {
                 document.getElementById(""+arrLetras[i]+"").disabled=true; 
             }
@@ -96,11 +97,10 @@
         function contarFallos(){    
             contadorFallos = contadorFallos+1;
             contadorFallosMostrados = contadorFallosMostrados - 1;
-            document.getElementById("intentos").innerHTML= "Te quedan "+contadorFallosMostrados+" intentos."
             document.getElementById("contadorImagenes").innerHTML= "<img src=\"Images/ahorcado"+ contadorFallos + ".jpg\">"
-            alert("lo siento, te has equivocado");
+            alert(mostrarError);
             if (contadorFallos==7) {
-            alert("lo siento, has perdido.");
+            alert(mensajePerdedor);
             for(i=0;i < arrLetras.length ;i++) {
             document.getElementById(""+arrLetras[i]+"").disabled=true; 
             }
@@ -114,11 +114,21 @@
                     mensajePerdedor= "Has Perdut...";
                     document.getElementById("iniciarJuegoBoton").innerHTML= "Inicia Joc";
                     document.getElementById("tituloJuego").innerHTML="Benvingut al joc del penjat"
+                    mostrarError="Ho sento t'has equivocat..."
                     arrPalabras=["taula","cadira","paraula","finestra"];
                     arrLetras = ['a','b','c','ç','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
                     break;
                     case "castellano":
-                }
+                        arrPalabras = ["cielo","pajaro","ordenador","stackoverflow"];
+                        arrLetras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
+                        mensajeGanador= "Has Ganado!";
+                        mensajePerdedor= "Has Perdido...";
+                        mostrarError="Lo siento te has equivocado"
+                        document.getElementById("tituloJuego").innerHTML="¡Bienvenido a este juego del ahorcado!";
+                        document.getElementById("iniciarJuegoBoton").innerHTML= "Iniciar Juego";
+                        break;  
+                    }
+                    
             }
                  
     </script>
