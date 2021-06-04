@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Promt</title>
+</head>
+
+<body id="fondoACambiar">
+    <h1 id="fuenteACambiar">Hola</h1>
+    <h1 id="datosAMostrar"></h1>
+    <button type="button" onclick="pedirDatos()">Click aqui para introducir Nombre, Edad, Un color de fondo y un tamaño
+        de fuete</button>
+    <script>
+        function pedirDatos() {
+            let nombreUsuario = prompt("Introduce un nombre");
+            let edadUsuario = prompt("Introduce una edad");
+            let colorDeFondo = prompt("Introduce un color de fondo");
+            let fuenteDeHola = prompt("introduce un tamaño de fuente para Hola");
+            document.getElementById("datosAMostrar").innerHTML = nombreUsuario + " tienes " + edadUsuario + " años";
+            document.getElementById("fondoACambiar").style.backgroundColor = colorDeFondo;
+            document.getElementById("fuenteACambiar").style.fontSize = fuenteDeHola + "px";
+        }
+    </script>
+</body>
+
+</html>

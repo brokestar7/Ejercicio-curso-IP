@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 13</title>
+</head>
+<!--Hacer 100 botones con bucle y que si le das al boton te diga su tabla-->
+
+<body>
+    <p id="verTablas"></p>
+    <div id="botonesAMostrar"> </div>
+
+
+
+    <script>
+        for (i = 1; i <= 100; i++) {
+            document.getElementById("botonesAMostrar").innerHTML += "<button type=\"button\" onclick=\"mostrarTabla(" + i + ")\">tabla del " + i + " </button>'";
+        }
+        function mostrarTabla(numeroDeTabla) {
+            for (i = 1; i <= 10; i++) {
+                document.getElementById("verTablas").innerHTML += numeroDeTabla + "*" + i + "=" + numeroDeTabla * i + "<br>";
+            }
+        }
+    </script>
+</body>
+
+</html>

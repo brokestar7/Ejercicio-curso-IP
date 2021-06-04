@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17</title>
+    <!--Crear un boton que te devuelva un numero aleatorio y segun ese numero te aparezca la imagen del numero correspondiente/ hacer una tabla que muestre cuantas veces se muestra un boton/ahora hacer que cuando un numero llegue a diez te diga el ganador y se reinicie/ Pedir nombre, pedir saldo inicial, mostrar en la pantalla, hola juan tienes x de saldo, cada vez que le de al boton hay que preguntar cuanto apuesta y a que numero apuesta-->
+</head>
+
+<body>
+    <h1>Hola! Esta es mi pagina de apuestas</h1>
+    <h2 id="datosUsuario"></h2>
+    <h3 id="resultadoApuesta"></h3>
+    <button type="button" onclick="pedirDatosUsuario()">Ingrese su Nombre y sus Fichas</button>
+    <button id="botonApuesta" style="display:none" type="button" onclick="pedirValoresApuesta()">Hacer Apuesta</button>
+    <button id="resetApuesta" onclick="pedirSaldo()">Depositar saldo</button>
+    <script>
+        let saldoUsuario = 0;
+        let nombreUsuario;
+
+        function pedirDatosUsuario() {
+            nombreUsuario = prompt("Introduce un nombre");
+            saldoUsuario = parseInt(prompt("Introduce numero de Fichas"));
+            document.getElementById("datosUsuario").innerHTML = "Bienvenido " + nombreUsuario + " tienes " + saldoUsuario + " fichas";
+            document.getElementById("botonApuesta").style.display = "inline";
+        }
+
+        function pedirValoresApuesta() {
+            let saldoApuesta = parseInt(prompt("Introduce saldo a apostar"));
+            if (saldoApuesta >= 1 && saldoApuesta <= saldoUsuario) {
+                let numeroApuesta = parseInt(prompt("Inroduce el numero  del uno al 10 que quieres apostar"));
+                let numeroAleatorio = Math.floor(Math.random() * 10 + 1);
+                let sumaSaldo = saldoApuesta * 8 + saldoUsuario - saldoApuesta;
+                let restaSaldo = saldoUsuario - saldoApuesta;
+                if (numeroApuesta == numeroAleatorio ) {
+                    saldoUsuario = sumaSaldo;
+                    document.getElementById("resultadoApuesta").innerHTML = "El resultado de la apuesta es " + numeroAleatorio + " Felicidades has acertado!";
+                    document.getElementById("datosUsuario").innerHTML = "Bienvenido " + nombreUsuario + " tienes " + saldoUsuario + " fichas";
+                } else {
+                    saldoUsuario = restaSaldo;
+                    document.getElementById("resultadoApuesta").innerHTML = "El resultado de la apuesta es " + numeroAleatorio + " Lo siento has fallado...";
+                    document.getElementById("datosUsuario").innerHTML = "Bienvenido " + nombreUsuario + " tienes " + saldoUsuario + " fichas";
+                }
+            } else {
+                alert("Introduce un saldo posible");
+            }
+        }
+
+        function pedirSaldo() {
+            let ingresoDinero = parseInt(prompt("Introduce saldo a ingresar"));
+            let sumaSaldos = saldoUsuario + ingresoDinero;
+            saldoUsuario = sumaSaldos;
+            document.getElementById("datosUsuario").innerHTML = "Bienvenido " + nombreUsuario + " tienes " + saldoUsuario + " fichas";
+        }
+    </script>
+</body>
+
+</html>

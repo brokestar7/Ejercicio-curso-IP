@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es  ">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+    <!--hacer la tabla del 7, (usar bucle mejor) 
+    Ahora que empieze el programa con un promt y te pregunte que tabla quieres mostrar -->
+</head>
+
+<body>
+    <h1 id="tablaAMostrar">
+    </h1>
+    <button type="button" onclick="pedirTabla()">Click para pedir tabla</button>
+    <script>
+        function pedirTabla() {
+            let numeroTabla = parseInt(prompt("Introduce numero para mostrar su tabla de multiplicar"));
+            let pedirNumMultiplicar = parseInt(prompt("Introduce hasta que numero quieres que se multiplique"));
+            let numeroDelPrompt1 = numeroTabla;
+            let numeroDelPromp2 = pedirNumMultiplicar;
+            for (i = 0; i <= pedirNumMultiplicar; i++) {
+                document.getElementById("tablaAMostrar").innerHTML += numeroDelPrompt1 + "*" + i + " = " + numeroDelPrompt1 * i + "<br>";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios</title>
+</head>
+
+<body id="textoQueCambiara">
+    <!--hacer un h1, despues un h2 despues un parrafo y tres botones primer boton:dark style, segundo boton:white style,  y dos contadores que nos indiquen cuantas veces hemos pulsado cada boton-->
+    <header>
+        <h1>Ejercio de botones 3</h1>
+        <h2>Creando botones y contadores</h2>
+    </header>
+
+    <p>Veces seleccionado tema oscuro</p>
+    <p id="contadorOscuro"></p>
+    <p>Veces seleccionado tema blanco</p>
+    <p id="contadorBlanco"></p>
+    <p id="totalDeCambios"></p>
+    <button id="cambioATemaOscuro" type="button" onclick="temaOscuro()">Dark</button>
+    <button id="cambioATemaBlanco" type="button" onclick="temaBlanco()">White</button>
+    <script>
+        let pulsacionesTemaOscuro = 0;
+        let pulsacionesTemaBlanco = 0;
+        let totalDePulsaciones = 0;
+        function temaOscuro() {
+            document.getElementById("textoQueCambiara").style.backgroundColor = "black"
+            document.getElementById("textoQueCambiara").style.color = "white"
+            pulsacionesTemaOscuro++;
+            document.getElementById("contadorOscuro").innerHTML = pulsacionesTemaOscuro;
+            sumaTotal();
+        }
+        function temaBlanco() {
+            document.getElementById("textoQueCambiara").style.backgroundColor = ""
+            document.getElementById("textoQueCambiara").style.color = ""
+            pulsacionesTemaBlanco++;
+            document.getElementById("contadorBlanco").innerHTML = pulsacionesTemaBlanco;
+            sumaTotal(); //llamando a la funcion dentro de la funcion
+        }
+        function sumaTotal() {
+            totalDePulsaciones++;
+            document.getElementById("totalDeCambios").innerHTML = "El total de cambios es " + totalDePulsaciones;
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

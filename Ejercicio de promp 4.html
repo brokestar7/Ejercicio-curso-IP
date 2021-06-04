@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio prompt 4</title>
+</head>
+<!-- hacer dos promts que te pregunten dos numeros y te de un resusltado
+una vez tengamos e resultado que te escriba directamente la suma. Ejemplo:5+6=11
+Otro boton que sea sumar nuevo valor, que saque otro promt y que se lo sume al total y que aparezca en los valores anteriores
+ahora otro boton que reste
+EL titulo donde aparece la ultima cuenta tiene que aparecer la oprecion debajo.Las sumas en verde, las restas en rojo-->
+
+<body>
+    <p id="mostrarResultado"></p>
+    <p id="mostrarOperacionCompleta"></p>
+    <button type="button" onclick="sumarNumeros()">Click aqui para introducir numeros</button>
+    <button type="button" onclick="sumarNuevoValor()">Click aqui para sumar nuevo valor</button>
+    <button type="button" onclick="restarValor()">Este ya es para restar</button>
+    <script>
+        function sumarNumeros() {
+            let primerNumero = parseInt(prompt("Introduce el primer Numero"));
+            let segundoNumero = parseInt(prompt("Introduce el segundo Numero"));
+            let sumaValores = primerNumero + segundoNumero;
+            document.getElementById("mostrarResultado").innerHTML = primerNumero + segundoNumero;
+            document.getElementById("mostrarOperacionCompleta").innerHTML = primerNumero + "+" + segundoNumero + "=" + sumaValores;
+        }
+        function sumarNuevoValor() {
+            let nuevoValor = parseInt(prompt("Introduce el nuevo valor"));
+            let valorPrimerResultado = parseInt(document.getElementById("mostrarResultado").innerHTML);
+            let sumaDelNuevoBoton = valorPrimerResultado + nuevoValor;
+            document.getElementById("mostrarResultado").innerHTML = valorPrimerResultado + nuevoValor;
+            document.getElementById("mostrarOperacionCompleta").innerHTML = document.getElementById("mostrarOperacionCompleta").innerHTML + "<br>" + valorPrimerResultado + "+" + nuevoValor + "=" + sumaDelNuevoBoton;
+        }
+        function restarValor() {
+            let nuevoValorResta = parseInt(prompt("Introduce valor para la resta"));
+            let valorSegundoResultado = parseInt(document.getElementById("mostrarResultado").innerHTML);
+            let restaValores = valorSegundoResultado - nuevoValorResta;
+            document.getElementById("mostrarResultado").innerHTML = valorSegundoResultado - nuevoValorResta;
+            document.getElementById("mostrarOperacionCompleta").innerHTML = document.getElementById("mostrarOperacionCompleta").innerHTML + "<br>" + valorSegundoResultado + "-" + nuevoValorResta + "=" + restaValores;
+        }
+    </script>
+</body>
+
+</html>

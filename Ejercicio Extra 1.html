@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Extra</title>
+</head>
+<!--La semana que viene haremos un ejercicio parecido a este: 
+Un botón que lanza dos prompts, nombre y edad. 
+
+Si la edad es mayor a 17 añadimos el nombre a una lista (mayores de edad). Sino, a una lista (menores de edad).
+
+Las listas deben estar ordenadas. 
+
+(si no os funciona con listas lo hacemos como hasta ahora)-->
+
+<body>
+    <button type="button" onclick="pedirDatos()">Click aqui para introducir Datos</button>
+    <h1 id="mostrarDatos"></h1>
+    <p id="mayorEdad"></p>
+
+    <script>
+        function pedirDatos() {
+            let nombreUsuario = prompt("Introduce un nombre")
+            let edadUsuario = prompt("Introduce una edad")
+            let listaMayorEdad = "<ul>";
+            if (edadUsuario > 17) {
+                listaMayorEdad += edadUsuario + " Eres mayor de edad" + "<br>" + "</ul>";
+                document.getElementById("mayorEdad").innerHTML = listaMayorEdad;
+            }
+            else {
+
+            }
+        }
+    </script>
+</body>
+
+</html>

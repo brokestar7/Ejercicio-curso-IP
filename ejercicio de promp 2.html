@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Promt</title>
+</head>
+
+<body id="fondoACambiar">
+    <h1>Hola</h1>
+    <h1 id="datosAMostrar"></h1>
+    <h2 id="nombreAMostrar"></h2>
+    <button type="button" onclick="pedirDatos()">Click aqui</button>
+    <script>
+        function pedirDatos() {
+            let edadUsuario = parseInt(prompt("Introduce una edad"));
+            let nombreUsuario = prompt("Como te llamas?");
+            if (edadUsuario >= 18) {
+                document.getElementById("datosAMostrar").innerHTML = "Eres mayor de edad";
+                document.getElementById("datosAMostrar").style.color = "green";
+            }
+            else {
+                document.getElementById("datosAMostrar").innerHTML = "Eres menor de edad";
+                document.getElementById("datosAMostrar").style.color = "red";
+            }
+            if (nombreUsuario == "Adrian") {
+                document.getElementById("nombreAMostrar").innerHTML = "Hola Adrian";
+            } else {
+                document.getElementById("nombreAMostrar").innerHTML = "Tu quien eres y que has hecho con Adrian???";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

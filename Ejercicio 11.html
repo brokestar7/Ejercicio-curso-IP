@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11</title>
+</head>
+<!--crear una tienda  /Crear una array con 5 o 6  elementos que vendamos
+    poner un h1 con el titulo7 y hacer un ul + li con los productos usando el bucle for
+    que aparezca el boton comprar al lado de cada elemento  y ademas se sume los elemetos a una lista de la compra.-->
+
+<body>
+    <h1>Tienda de bricolaje</h1>
+
+    <p id="mostrarLista"></p>
+    <h1>Carrito</h1>
+    <p id="listaCompra"></p>
+
+    <script>
+        let productos = ["martillo", "cola blanca", "clavos", "tablas de madera"];
+        //let totalProductos = productos.length;
+        // let botonCompra = "<button type='button' onclick=\agregarAlCarrito()\>Comprar</button>";
+        let lista = "<ul>";
+        let arrayCompra = [];
+        for (i = 0; i < productos.length; i++) {
+            lista += "<li>" + productos[i] + "</li>" + "<button type='button' onclick=\agregarAlCarrito(" + i + ")\>Comprar</button>";
+        }
+        lista += "</ul>";
+        document.getElementById("mostrarLista").innerHTML = lista;
+
+        function agregarAlCarrito(producto) {
+            arrayCompra.push(productos[producto]);
+            let listaDeCompra = "<ul>";
+            let numArrCompra = arrayCompra.length;
+            for (i = 0; i < numArrCompra; i++) {
+                listaDeCompra += "<li>" + arrayCompra[i] + "</li>";
+            }
+            listaDeCompra += "</ul>";
+            document.getElementById("listaCompra").innerHTML = listaDeCompra;
+        }
+    </script>
+
+</body>
+
+</html>

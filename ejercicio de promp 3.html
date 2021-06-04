@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio Promt 3</title>
+</head>
+
+<body>
+    <h1>Hola</h1>
+    <h2 id="nombreDelUsuario"></h2>
+    <img id="fotoDelUsuario" src="images/usuario.png" alt="fotoUsuario">
+    <br>
+    <button type=" button" onclick="ponerFotoUsuario()">Click aqui para introducir nombre de usuario</button>
+    <script>
+        function ponerFotoUsuario() {
+            let nombreUsuario = prompt("Introduce nombre de usuario")
+            if (nombreUsuario == "Pikachu" || nombreUsuario == "Batman") {
+                document.getElementById("nombreDelUsuario").innerHTML = nombreUsuario;
+                document.getElementById("fotoDelUsuario").src = "images/" + nombreUsuario + ".jpg";
+            }
+            else {
+                document.getElementById("nombreDelUsuario").innerHTML = "Lo siento no estas registrado";
+                document.getElementById("fotoDelUsuario").src = "images/usuario.png";
+            }
+        }
+    </script>
+</body>
+
+</html>

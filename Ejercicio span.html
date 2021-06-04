@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio span</title>
+    <style>
+        .verde {
+            color: green;
+        }
+
+        .rojo {
+            color: red;
+        }
+
+        .azul {
+            color: blue;
+        }
+    </style>
+</head>
+<!---->
+
+<body>
+    <h3><span class="verde">Juan</span><br><span class="rojo">Pedro</span><br><span class="azul">Eric</span></h3>
+    <p id="nombresAMostrar"></p>
+    <button type="button" onclick="mostrarNombres()">Click para introducir nombres</button>
+    <script>
+        function mostrarNombres() {
+            let almacenNmombre = document.getElementById("nombresAMostrar").innerHTML;
+            let nombres = prompt("Introduce un nombre");
+            if (nombres == "Felipe") {
+                document.getElementById("nombresAMostrar").innerHTML = almacenNmombre + "<br>" + "<span class='rojo'>" + nombres + "</span>";
+            }
+            else {
+                document.getElementById("nombresAMostrar").innerHTML = document.getElementById("nombresAMostrar").innerHTML + "<br>" + "<span class='verde'>" + nombres + "</span>";
+            }
+        }
+    </script>
+</body>
+
+</html>
