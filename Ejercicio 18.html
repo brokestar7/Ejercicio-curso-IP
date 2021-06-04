@@ -21,20 +21,20 @@
     <title>Ejercicio 18</title>
 </head>
 <body>
-    <h1>¡Bienvenido a este juego del ahorcado!</h1>
+    <h1 id="tituloJuego">¡Bienvenido a este juego del ahorcado!</h1>
     <p id="letras"></p>
     <p id="intentos"></p>
     <div id="botonesLetras"></div>
     <div id="contadorImagenes"></div>
-    <button type="button" onclick="iniciarJuego()">Iniciar Juego</button>
+    <button id="iniciarJuegoBoton" type="button" onclick="iniciarJuego()">Iniciar Juego</button>
     <label>Elije un idioma:</label>
     <select id="escogerIdiomas" onchange="cambiarIdioma()">
+        <option value="castellano">Castellano</option>
         <option value="catalan">Catalan</option>
         <option value="ingles">Ingles</option>
-        <option value="castellano">Castellano</option>
     </select>
     <script>
-        let idiomaSeleccionado = document.getElementById("escogerIdiomas").value;
+        let idiomaSeleccionado;
         let contadorAciertos;
         let contadorFallos;
         let contadorFallosMostrados = 7;
@@ -42,6 +42,8 @@
         let arrLetras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
         let palabraJuego;
         let numLetras;
+        let mensajeGanador="Has Ganado!";
+        let mensajePerdedor="Has Perdido...";
         function iniciarJuego() {
             document.getElementById("botonesLetras").innerHTML = "";
             document.getElementById("contadorImagenes").innerHTML= "";
@@ -105,11 +107,17 @@
             }
             }
             function cambiarIdioma() {
+                idiomaSeleccionado = document.getElementById("escogerIdiomas").value;
                 switch(idiomaSeleccionado) {
                     case "catalan":
-                    let arrPalabras=["taula","cadira","paraula","finestra"];
-                    let arrLetras = ['a','b','c','ç','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+                    mensajeGanador= "Has Guanyat!";
+                    mensajePerdedor= "Has Perdut...";
+                    document.getElementById("iniciarJuegoBoton").innerHTML= "Inicia Joc";
+                    document.getElementById("tituloJuego").innerHTML="Benvingut al joc del penjat"
+                    arrPalabras=["taula","cadira","paraula","finestra"];
+                    arrLetras = ['a','b','c','ç','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
                     break;
+                    case "castellano":
                 }
             }
                  
