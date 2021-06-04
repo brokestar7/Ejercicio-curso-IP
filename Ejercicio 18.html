@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1 {
+            font-size: 50px;    
+        }
+        p {
+            font-size: 40px;
+        }
+        #intentos {
+            font-size: 30px;
+        }
+        button {
+            font-size: 30px;
+        }
+    </style>
+    <title>Ejercicio 18</title>
+</head>
+<body>
+    <h1>¡Bienvenido a este juego del ahorcado!</h1>
+    <p id="letras"></p>
+    <p id="intentos"></p>
+    <div id="botonesLetras"></div>
+    <div id="contadorImagenes"></div>
+    <!-- <p id="palabraOculta"></p> -->
+    <button type="button" onclick="iniciarJuego()">Iniciar Juego</button>
+    <!-- <img src="Images/ahorcado1.jpg" alt=""> -->
+    
+    <script>
+        let contadorAciertos;
+        let contadorFallos;
+        let contadorFallosMostrados = 7;
+        let arrPalabras = ["cielo","pajaro","ordenador","stackoverflow"];
+        let arrLetras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
+        let palabraJuego;
+        let numLetras;
+        function iniciarJuego() {
+            document.getElementById("botonesLetras").innerHTML = "";
+            document.getElementById("contadorImagenes").innerHTML= "";
+            contadorFallos=0;
+            contadorAciertos=0;
+            obtenerPalabra();
+            ocultarPalabra();
+            crearBotonesLetras();
+        }
+        function obtenerPalabra () {
+            let numPalabras = arrPalabras.length;
+            let numAleatorio = Math.floor(Math.random() * numPalabras);
+            palabraJuego = arrPalabras[numAleatorio];
+            }
+        function ocultarPalabra () {
+            document.getElementById("letras").innerHTML= "";
+            numLetras = palabraJuego.length;
+            for (i=0;i< numLetras;i++) {
+                document.getElementById("letras").innerHTML+= "<span id='guion"+i+"'> _ </span>";
+            }
+            // for (i=0;i< numLetras;i++) {
+            //     document.getElementById("palabraOculta").innerHTML += "<span id='letraOculta"+i+"'>"+palabraJuego.length[i]+"</span>" 
+            // }
+        }
+        function crearBotonesLetras () {
+            for (i=0;i< arrLetras.length;i++) {
+                document.getElementById("botonesLetras").innerHTML += "<button id="+arrLetras[i]+" type='button' onclick=compararLetras('"+arrLetras[i]+"')> "+arrLetras[i]+"</button>"
+            }
+        }
+        function compararLetras (letraEscogida) {
+            let letraExiste=false;    
+            document.getElementById(letraEscogida).disabled = true;
+            for(i=0;i < numLetras;i++) {
+                if(palabraJuego.charAt(i)==letraEscogida ) {
+                contadorAciertos = contadorAciertos+1;
+                letraExiste=true;
+                document.getElementById("guion"+i).innerHTML= letraEscogida;           
+                }
+               
+            }  
+            if(contadorAciertos==numLetras){
+                alert("¡Felicidades has Ganado!");
+            for(i=0;i < arrLetras.length ;i++) {
+                document.getElementById(""+arrLetras[i]+"").disabled=true; 
+            }
+            } 
+            if(letraExiste==false) {
+                    contarFallos();
+                }
+        function contarFallos(){    
+            contadorFallos = contadorFallos+1;
+            contadorFallosMostrados = contadorFallosMostrados - 1;
+            document.getElementById("intentos").innerHTML= "Te quedan "+contadorFallosMostrados+" intentos."
+            document.getElementById("contadorImagenes").innerHTML= "<img src=\"Images/ahorcado"+ contadorFallos + ".jpg\">"
+            alert("lo siento, te has equivocado");
+            if (contadorFallos==7) {
+            alert("lo siento, has perdido.");
+            for(i=0;i < arrLetras.length ;i++) {
+            document.getElementById(""+arrLetras[i]+"").disabled=true; 
+            }
+            }
+            }
+            }        
+    </script>
+</body>
+</html>

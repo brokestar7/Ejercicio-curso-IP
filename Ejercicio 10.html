@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10</title>
+</head>
+<!--Hacer 4 botones, 4 funciones, sumar restar multiplicar y dividir.
+    tenemos que deficinir una varioable global fuera de las funciones.
+    let total, cada funcio pida dos numeros y realice dicha operacion de las anteriores nombradas. -->
+
+<body>
+    <p id="mostrarSuma"></p>
+    <p id="mostrarResta"></p>
+    <p id="mostrarMultiplicacion"></p>
+    <p id="mostrarDivision"></p>
+    <button type="button" onclick="operar('sumar')">Sumar</button>
+    <button type="button" onclick="operar('restar')">Restar</button>
+    <button type="button" onclick="operar('multiplicar')">Multiplicar</button>
+    <button type="button" onclick="operar('dividir')">Dividir</button>
+    <script>
+        function operar(tipoOperacion) {
+            if (tipoOperacion == 'sumar') {
+                let valor1suma = parseInt(prompt("Introduce primer valor"));
+                let valor2suma = parseInt(prompt("Introduce segundo numero"));
+                let totalSuma = valor1suma + valor2suma;
+                document.getElementById("mostrarSuma").innerHTML = totalSuma;
+            }
+            else if (tipoOperacion == 'restar') {
+                let valor1resta = parseInt(prompt("Introduce primer valor"));
+                let valor2resta = parseInt(prompt("Introduce segundo valor"));
+                document.getElementById("mostrarResta").innerHTML = valor1resta - valor2resta;
+            }
+            else if (tipoOperacion == 'multiplicar') {
+                let valor1multiplicacion = parseInt(prompt("Introduce primer valor"));
+                let valor2multiplicacion = parseInt(prompt("Introduce segundo valor"));
+                document.getElementById("mostrarMultiplicacion").innerHTML = valor1multiplicacion * valor2multiplicacion;
+            }
+            else {
+                let valor1division = parseInt(prompt("Introduce primer valor"));
+                let valor2division = parseInt(prompt("Introduce segundo valor"));
+                document.getElementById("mostrarDivision").innerHTML = valor1division / valor2division;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
