@@ -41,7 +41,7 @@ function compararResultados(opcionEscogida){
         document.getElementById("corazonesHumano").innerHTML += imgCorazones;
         }
         document.getElementById("mostrarResultado").innerHTML = "<img src='Images/PPT"+opcionEscogida+".jpg'>" + "<span id='vs'>vs</span>" + mostrarImagenMaquina + " El ganador es la Maquina!" ; 
-
+        
     }
     else if( opcionEscogida>opcionMaquina&&opcionEscogida<3&&opcionEscogida>1){//opcion escogida=2vs 1
         document.getElementById("corazonesMaquina").innerHTML = "";

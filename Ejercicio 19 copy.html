@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Ejercicio 19 copy.js"></script>
+    <title>Ejercicio 19</title>
+    <style>
+        img {
+            width: 125px;
+            height: 125px;
+            border: 1px solid black;
+        }
+        #corazon {
+            width: 25px;
+            height: 25px;
+            border: none;
+        }
+        h2 {
+            display: inline-block;
+        }
+        button {
+            font-size: 30px;
+        }
+        * {
+            font-size: 40px;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+    <!--Ejercicio de piedra papel y tijeras contra la maquina-->
+</head>
+<body>
+    <h1>Bienvenido a mi juego de Piedra, Papel y Tijeras</h1>
+    <h2>Humano</h2>
+    <div id="corazonesHumano">
+</div>
+<div id="mostrarImagenes">
+</div>
+ 
+    <h2>Maquina</h2>       
+    <div id="corazonesMaquina">
+    </div>
+    <div id="imagenMaquina"></div>
+    <div id="mostrarResultado"></div>
+    <button type="button" onclick="iniciarJuego()">Iniciar Juego</button>
+</body>
+</html>
